@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types';
 
-import { withSize } from 'react-sizeme'
 import { select } from 'd3-selection'
 import { geoPath, geoAlbersUsa } from 'd3-geo'
 import { feature } from 'topojson'
@@ -525,7 +524,34 @@ USMap.defaultProps = {
   size: { width: 600 }
 }
 
-const WrappedUSMap = withSize()(USMap)
-export { WrappedUSMap as USMap }
-export default withSize()(USMap)
-export { USMap as USMapUnwrapped }
+const USMapWithSize = (props) => {
+  const containerRef = useRef(null);
+  const [size, setSize] = useState({ width: 600 });
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const resizeObserver = new ResizeObserver(entries => {
+      const entry = entries[0];
+      setSize({ 
+        width: entry.contentRect.width,
+      });
+    });
+
+    resizeObserver.observe(containerRef.current);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  return (
+    <div ref={containerRef}>
+      <USMap {...props} size={size} />
+    </div>
+  );
+}
+
+export { USMapWithSize as USMap };
+export default USMapWithSize;
+export { USMap as USMapUnwrapped };

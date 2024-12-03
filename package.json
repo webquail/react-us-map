@@ -17,15 +17,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kevinschaul/react-us-map.git"
+    "url": "git+https://github.com/webquail/react-us-map.git"
   },
   "author": "Kevin Schaul",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kevinschaul/react-us-map/issues"
+    "url": "https://github.com/webquail/react-us-map/issues"
   },
-  "homepage": "https://github.com/kevinschaul/react-us-map#readme",
+  "homepage": "https://github.com/webquail/react-us-map#readme",
   "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "d3-geo": "^3.0.1",
     "d3-selection": "^3.0.0",
     "react-sizeme": "^3.0.2",
@@ -39,17 +41,8 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.2.0",
     "@rollup/plugin-replace": "^4.0.0",
-    "@storybook/addon-actions": "^6.4.19",
-    "@storybook/addon-essentials": "^6.4.19",
-    "@storybook/addon-interactions": "^6.4.19",
-    "@storybook/addon-links": "^6.4.19",
-    "@storybook/react": "^6.4.19",
-    "@storybook/testing-library": "0.0.9",
     "babel-loader": "^8.2.4",
     "gh-pages": "^3.2.3",
-    "react": "^18.0.0",
-    "react-docgen": "^5.4.0",
-    "react-dom": "^18.0.0",
     "rollup": "^2.70.1"
   }
 }
